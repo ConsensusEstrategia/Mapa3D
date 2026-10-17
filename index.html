@@ -6,9 +6,10 @@
 <meta name="author" content="Consensus Estrategia">
 <meta name="color-scheme" content="light dark">
 <meta name="description" content="Mapa seccional 3D del Distrito 4 de Zapopan (diputación local y federal, cómputos 2024): extracción de la subpestaña Mapa de la página Electoral de Consensus Estrategia.">
-<!-- Sellos: 2026-10-16.M2 (vista 3D) sobre la extracción 2026-10-16.M1 desde la compilación 2026-10-13.F10 (módulo D04Z 2026-10-13.C1). -->
-<meta name="Consensus-version" content="2026-10-16.M2">
+<!-- Sellos: 2026-10-17.M3 (puntos de territorio) sobre 2026-10-16.M2 (vista 3D) sobre la extracción 2026-10-16.M1 desde la compilación 2026-10-13.F10 (módulo D04Z 2026-10-13.C1). -->
+<meta name="Consensus-version" content="2026-10-17.M3">
 <meta name="D04Z3D_version" content="2026-10-16.M2">
+<meta name="D04ZP_version" content="2026-10-17.M3">
 <meta name="D04Z_version" content="2026-10-13.C1">
 <meta name="Fuente-compilacion" content="2026-10-13.F10">
 <title>Distrito 4 Zapopan · Mapa 3D</title>
@@ -837,6 +838,57 @@ body.D04Z_pdf-cap #D04Z_app .D04Z_res-col + .D04Z_res-col{border-left:1px solid 
 }
 @media print{#D04Z_app .D04Z3D_ctrl,#D04Z_app .D04Z3D_estado,#D04Z_app .D04Z3D_barra{display:none!important}}
 </style>
+<style>
+/* D04ZP_ · Puntos de territorio del Distrito 4 (M3): barra SUGERIDOS | TODOS, casillas T · M · C, fichas y notas */
+#D04Z_app .D04ZP_barra{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:2px 0 6px;padding:8px 10px;border:1px solid var(--D04Z_filete);border-radius:10px;background:var(--D04Z_panel2)}
+#D04Z_app .D04ZP_tit{font:700 12px/1 var(--D04Z_f-titulo);letter-spacing:.07em;text-transform:uppercase;color:var(--D04Z_tinta2)}
+#D04Z_app .D04ZP_seg{display:inline-flex;border:1px solid var(--D04Z_filete);border-radius:9px;overflow:hidden;background:var(--D04Z_lienzo)}
+#D04Z_app .D04ZP_seg button{border:0;background:none;padding:7px 14px;font:700 13px/1 var(--D04Z_f-titulo);letter-spacing:.04em;cursor:pointer;color:var(--D04Z_tinta2);min-height:36px}
+#D04Z_app .D04ZP_seg button + button{border-left:1px solid var(--D04Z_filete)}
+#D04Z_app .D04ZP_seg button[aria-pressed="true"]{background:var(--D04Z_ok);color:#FFFFFF}
+#D04Z_app .D04ZP_seg button:focus-visible,#D04Z_app .D04ZP_chk input:focus-visible{outline:3px solid #FFE45C;outline-offset:2px}
+#D04Z_app .D04ZP_tipos{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px}
+#D04Z_app .D04ZP_chk{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--D04Z_tinta);cursor:pointer;min-height:36px;white-space:nowrap}
+#D04Z_app .D04ZP_chk input{width:17px;height:17px;margin:0;accent-color:var(--D04Z_ok)}
+#D04Z_app .D04ZP_chk span{color:var(--D04Z_tinta2);font-variant-numeric:tabular-nums}
+#D04Z_app .D04ZP_ico{display:inline-block;vertical-align:middle;flex:none}
+#D04Z_app .D04ZP_cuenta{margin-left:auto;font-size:12.5px;color:var(--D04Z_tinta2);font-variant-numeric:tabular-nums}
+#D04Z_app .D04ZP_nota{margin:0 0 8px;line-height:1.7}
+#D04Z_app .D04ZP_nota[hidden]{display:none}
+#D04Z_app .D04ZP_nota .D04ZP_ico{width:18px;height:18px;margin:0 1px}
+/* Globo 2D */
+#D04Z_app .D04ZP_tip2d{background:var(--D04Z_panel);color:var(--D04Z_tinta);border:1px solid var(--D04Z_filete);border-radius:8px;font-size:12.5px;line-height:1.45;box-shadow:var(--D04Z_sombra);max-width:290px;white-space:normal}
+#D04Z_app .D04ZP_tip2d::before{border-top-color:var(--D04Z_filete)}
+#D04Z_app .D04ZP_tip-d{color:var(--D04Z_tinta2)}
+#D04Z_app .D04ZP_ico2d{cursor:pointer}
+/* Ficha (globo al hacer clic) en Leaflet y MapLibre, en los dos temas */
+#D04Z_app .D04ZP_pop .leaflet-popup-content-wrapper,#D04Z_app .D04ZP_pop .leaflet-popup-tip,#D04Z_app .D04ZP_pop .maplibregl-popup-content{background:var(--D04Z_panel);color:var(--D04Z_tinta);box-shadow:var(--D04Z_sombra);border:1px solid var(--D04Z_filete)}
+#D04Z_app .D04ZP_pop .leaflet-popup-content{margin:12px 14px;font-size:12.5px;line-height:1.45}
+#D04Z_app .D04ZP_pop .maplibregl-popup-content{border-radius:10px;padding:12px 14px;font-size:12.5px;line-height:1.45}
+#D04Z_app .D04ZP_pop.maplibregl-popup-anchor-bottom .maplibregl-popup-tip,#D04Z_app .D04ZP_pop.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip,#D04Z_app .D04ZP_pop.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip{border-top-color:var(--D04Z_panel)}
+#D04Z_app .D04ZP_pop.maplibregl-popup-anchor-top .maplibregl-popup-tip,#D04Z_app .D04ZP_pop.maplibregl-popup-anchor-top-left .maplibregl-popup-tip,#D04Z_app .D04ZP_pop.maplibregl-popup-anchor-top-right .maplibregl-popup-tip{border-bottom-color:var(--D04Z_panel)}
+#D04Z_app .D04ZP_pop.maplibregl-popup-anchor-left .maplibregl-popup-tip{border-right-color:var(--D04Z_panel)}
+#D04Z_app .D04ZP_pop.maplibregl-popup-anchor-right .maplibregl-popup-tip{border-left-color:var(--D04Z_panel)}
+#D04Z_app .D04ZP_pop .maplibregl-popup-close-button,#D04Z_app .D04ZP_pop a.leaflet-popup-close-button{color:var(--D04Z_tinta2);font-size:20px;width:26px;height:26px;line-height:24px}
+#D04Z_app .D04ZP_ficha{max-height:min(380px,55vh);overflow:auto;padding-right:4px}
+#D04Z_app .D04ZP_ficha h4{display:flex;align-items:center;gap:8px;margin:0 22px 6px 0;font:700 14px/1.25 var(--D04Z_f-titulo);color:var(--D04Z_tinta)}
+#D04Z_app .D04ZP_ficha h4 small{display:block;font:500 11.5px var(--D04Z_f-cuerpo);color:var(--D04Z_tinta2);letter-spacing:.03em}
+#D04Z_app .D04ZP_ficha dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 10px;margin:0}
+#D04Z_app .D04ZP_ficha dt{color:var(--D04Z_tinta2);white-space:nowrap}
+#D04Z_app .D04ZP_ficha dd{margin:0;min-width:0;overflow-wrap:anywhere}
+#D04Z_app .D04ZP_ficha hr{border:0;border-top:1px dashed var(--D04Z_filete);margin:9px 0}
+#D04Z_app .D04ZP_vivo{margin:9px 0 0;padding:7px 9px;border-left:3px solid var(--D04Z_ok);background:color-mix(in srgb,var(--D04Z_ok) 12%,var(--D04Z_panel));border-radius:6px}
+#D04Z_app .D04ZP_acc{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:9px}
+#D04Z_app .D04ZP_acc .D04Z_btn{min-height:34px;padding:5px 11px;font-size:12.5px}
+#D04Z_app .D04ZP_acc a{color:var(--D04Z_ok-ink);font-weight:600}
+#D04Z_app #D04ZP_lec{margin-top:10px}
+@media (max-width:720px){
+  #D04Z_app .D04ZP_cuenta{margin-left:0;flex:1 1 100%}
+  #D04Z_app .D04ZP_seg{flex:1 1 100%}
+  #D04Z_app .D04ZP_seg button{flex:1 1 50%}
+}
+@media print{#D04Z_app .D04ZP_barra{display:none!important}}
+</style>
 </head>
 <body>
 
@@ -910,6 +962,18 @@ body.D04Z_pdf-cap #D04Z_app .D04Z_res-col + .D04Z_res-col{border-left:1px solid 
           </div>
         </div>
         <p class="D04Z_nota D04Z3D_ley" id="D04Z3D_ley"></p>
+        <div class="D04ZP_barra" role="group" aria-label="Puntos de territorio sobre el mapa">
+          <span class="D04ZP_tit">Puntos</span>
+          <div class="D04ZP_seg" role="group" aria-label="Qué puntos mostrar"><button type="button" data-d04zp_modo="sug" aria-pressed="true">SUGERIDOS</button><button type="button" data-d04zp_modo="todos" aria-pressed="false">TODOS</button></div>
+          <div class="D04ZP_tipos" role="group" aria-label="Tipos de punto">
+            <label class="D04ZP_chk"><input type="checkbox" data-d04zp_tipo="T" checked>Tianguis <span id="D04ZP_n-T"></span></label>
+            <label class="D04ZP_chk"><input type="checkbox" data-d04zp_tipo="M" checked>Mercados <span id="D04ZP_n-M"></span></label>
+            <label class="D04ZP_chk"><input type="checkbox" data-d04zp_tipo="C" checked>Cruceros <span id="D04ZP_n-C"></span></label>
+          </div>
+          <span class="D04ZP_cuenta" id="D04ZP_cuenta" role="status">Cargando puntos…</span>
+        </div>
+        <p class="D04Z_nota D04ZP_nota" id="D04ZP_nota-ley"></p>
+        <p class="D04Z_nota D04ZP_nota" id="D04ZP_nota-todos" hidden></p>
         <div class="D04Z_mapa-fila">
           <div class="D04Z3D_marco" id="D04Z3D_marco">
             <div id="D04Z_mapa" class="D04Z_mapa" role="region" aria-label="Mapa de secciones"></div>
@@ -926,13 +990,15 @@ body.D04Z_pdf-cap #D04Z_app .D04Z_res-col + .D04Z_res-col{border-left:1px solid 
               <li><b>Brújula:</b> clic para poner el norte arriba; arrástrala para girar.</li>
               <li><b>2D / 3D:</b> pasa de la vista inclinada a la vista desde arriba.</li>
               <li><b>Teclado</b> (con el mapa activo): flechas para mover, <kbd>Mayús</kbd> + flechas para rotar e inclinar, <kbd>+</kbd> y <kbd>−</kbd> para el zoom.</li>
-              <li><b>Clic en una columna:</b> la marca y abre su ficha, resumen y casillas.</li></ul>
+              <li><b>Clic en una columna:</b> la marca y abre su ficha, resumen y casillas.</li>
+              <li><b>Clic en un punto</b> (T, M o C): abre su ficha; desde ahí puedes marcar su sección.</li></ul>
               <button type="button" class="D04Z_btn" id="D04Z3D_ayuda-x">Cerrar</button></div>
           </div>
           <div class="D04Z_panel D04Z_ficha" id="D04Z_ficha"><h3 style="margin-top:0">Elige una sección</h3><p class="D04Z_nota">Toca un polígono del Distrito 4 para ver su ficha.</p></div>
         </div>
         <p class="D04Z_nota" id="D04Z_nota-mapa" style="margin-top:10px"></p>
         <div class="D04Z_lec" id="D04Z_lec-mapa"></div>
+        <div class="D04Z_lec" id="D04ZP_lec"></div>
       </div>
       <div class="D04Z_panel D04Z_resumen" id="D04Z_resumen"></div>
       <div class="D04Z_panel" id="D04Z_hist-panel">
@@ -2027,6 +2093,7 @@ return maplibregl$1;
         encuadra(false);
         rotulos(); eventos(); repinta(); marca(false);
         global.D04Z3D_listo = true;
+        if (global.D04ZP) global.D04ZP.repinta(); /* M3 */
       });
       M.on('error', function (e) { if (e && e.sourceId === 'D04Z3D-osm') { TESELAS.mal++; estado(); } });
       M.on('sourcedata', function (e) { if (e.sourceId === 'D04Z3D-osm' && e.tile && e.tile.state === 'loaded') { TESELAS.ok++; } });
@@ -2088,12 +2155,13 @@ return maplibregl$1;
     var capas = ['D04Z3D-col', 'D04Z3D-ctx'];
     M.on('mousemove', function (e) {
       $('#D04Z3D_coord').textContent = e.lngLat.lat.toFixed(5) + '°, ' + e.lngLat.lng.toFixed(5) + '°';
-      var f = M.queryRenderedFeatures(e.point, { layers: capas })[0];
+      var hp = global.D04ZP ? global.D04ZP.puntero3D(e) : null; /* M3: el punto de territorio gana sobre la columna */
+      var f = hp ? null : M.queryRenderedFeatures(e.point, { layers: capas })[0];
       var s = f ? f.properties.s : null, d4 = f && f.layer.id === 'D04Z3D-col';
-      M.getCanvas().style.cursor = f ? 'pointer' : '';
+      M.getCanvas().style.cursor = f || hp ? 'pointer' : '';
       M.setFilter('D04Z3D-hover', ['==', ['get', 's'], d4 ? s : -1]);
-      if (!f) { tip.hidden = true; return; }
-      var h = P.tipMapa({ properties: { s: s, d: d4 ? P.DIST : f.properties.d } });
+      if (!f && !hp) { tip.hidden = true; return; }
+      var h = hp || P.tipMapa({ properties: { s: s, d: d4 ? P.DIST : f.properties.d } });
       if (d4) {
         var n = GEO.features.filter(function (g) { return g.properties.s === s; })[0];
         if (n && n.properties.n > 1) h += '<br><i>Une ' + n.properties.n + ' polígonos del marco nuevo</i>';
@@ -2107,6 +2175,7 @@ return maplibregl$1;
     });
     M.getCanvas().addEventListener('mouseleave', function () { tip.hidden = true; M.setFilter('D04Z3D-hover', ['==', ['get', 's'], -1]); });
     M.on('click', function (e) {
+      if (global.D04ZP && global.D04ZP.clic3D(e)) return; /* M3 */
       var f = M.queryRenderedFeatures(e.point, { layers: capas })[0]; if (!f) return;
       if (f.layer.id === 'D04Z3D-col') P.selecciona([f.properties.s]); else P.clicFuera(f.properties.s);
     });
@@ -2264,6 +2333,342 @@ return maplibregl$1;
     get datos() { return GEO; },
     get altura() { return ULT; },
     listo: function () { return listo; }
+  };
+})(window);
+</script>
+<!-- D04ZP_ · puntos de territorio del Distrito 4 (gzip + base64): tianguis, mercados, cruceros y lugares de reunión -->
+<script>window.D04ZP_GZ = "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";</script>
+<!-- D04ZP_ · lógica de los puntos (3D y 2D) -->
+<script>
+/* =====================================================================
+   D04ZP_ · Puntos de territorio del Distrito 4 (M3 · 2026-10-17)
+   Tianguis (T), mercados (M) y cruceros (C) sobre el mapa 3D y el 2D.
+   SUGERIDOS (por omisión): 26 tianguis del D4, 9 mercados y 23 cruceros
+   principales. TODOS agrega 41 tianguis fuera del D4 y 167 lugares de
+   reunión (uno por sección federal). Coordenadas tal como vienen en los
+   archivos; los puntos que comparten coordenada se agrupan en un ícono
+   con contador. El dato vivo de cada sección (votos, meta) sale del
+   módulo D04Z_ por el puente, así que no puede discrepar del mapa.
+   ===================================================================== */
+(function (global) {
+  'use strict';
+  var APP = document.getElementById('D04Z_app');
+  if (!APP) return;
+  var $ = function (s) { return APP.querySelector(s); };
+  var lee = function (k, d) { try { var v = localStorage.getItem(k); return v == null ? d : v; } catch (e) { return d; } };
+  var guarda = function (k, v) { try { localStorage.setItem(k, v); } catch (e) { } };
+  var P = null, DAT = null, GR = [], ICO = {}, cargando = false;
+  var MODO = 'sug';                       /* siempre arranca en SUGERIDOS */
+  var VIS = { T: true, M: true, C: true };
+  try { var v0 = JSON.parse(lee('D04ZP_tipos', 'null')); if (v0) ['T', 'M', 'C'].forEach(function (k) { if (typeof v0[k] === 'boolean') VIS[k] = v0[k]; }); } catch (e) { }
+  var FONDO = '#1B261F', LETRA = '#F2F4EE', CUENTA = '#FFE45C', DPR = 2;
+  /* Anillos validados con ce_paleta.py (tema oscuro, pares todos): ámbar, cian y hueso. La forma también distingue el tipo. */
+  var TIPOS = {
+    T: { nom: 'Tianguis', pl: 'tianguis', forma: 'c', anillo: '#F2A93B', letra: 'T', tam: 30, z: 4, todos: false, vis: 'T' },
+    M: { nom: 'Mercado', pl: 'mercados', forma: 's', anillo: '#4FC3D9', letra: 'M', tam: 29, z: 3, todos: false, vis: 'M' },
+    C: { nom: 'Crucero principal', pl: 'cruceros principales', forma: 'd', anillo: '#F2F4EE', letra: 'C', tam: 32, z: 2, todos: false, vis: 'C' },
+    F: { nom: 'Tianguis fuera del D4', pl: 'tianguis fuera del D4', forma: 'c', anillo: '#9EAE99', letra: 'T', tam: 24, z: 1, todos: true, vis: 'T', tenue: true, punteado: true },
+    R: { nom: 'Lugar de reunión', pl: 'lugares de reunión', forma: 'd', anillo: '#F2F4EE', letra: 'C', tam: 21, z: 0, todos: true, vis: 'C' }
+  };
+  var DIAS = ['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO', 'DOMINGO'];
+  var DIA_TXT = { LUNES: 'lunes', MARTES: 'martes', MIERCOLES: 'miércoles', JUEVES: 'jueves', VIERNES: 'viernes', SABADO: 'sábado', DOMINGO: 'domingo' };
+  var MENORES = { de: 1, del: 1, la: 1, las: 1, los: 1, el: 1, y: 1, en: 1, a: 1 };
+
+  /* ---------------- utilidades ---------------- */
+  function e(v) { return v == null ? '' : P.esc(String(v)); }
+  function tc(s) {
+    if (!s) return s;
+    return String(s).toLowerCase().replace(/\s+/g, ' ').trim().split(' ').map(function (w, i) {
+      var u = w.toUpperCase().replace(/[^A-ZÁÉÍÓÚÑ]/g, '');
+      if (/^(I|II|III|IV|V|VI)$/.test(u)) return w.toUpperCase();
+      if (i > 0 && MENORES[w]) return w;
+      return w.replace(/(^|[(\-"])([a-záéíóúñü])/, function (m, a, b) { return a + b.toUpperCase(); });
+    }).join(' ');
+  }
+  var NF1 = new Intl.NumberFormat('es-MX', { maximumFractionDigits: 1 });
+  function dist(m) { return m < 1000 ? P.fmt(m) + ' m' : NF1.format(Math.round(m / 100) / 10) + ' km'; }
+  function dia(d) { return DIA_TXT[d] || (d ? String(d).toLowerCase() : 'sin día'); }
+  function visibleTipo(t) { var T = TIPOS[t]; return (!T.todos || MODO === 'todos') && VIS[T.vis]; }
+  function colindante(p) { return p.t === 'F' && /COLINDANTE/i.test(p.res || ''); }
+  function nombre(p) { return p.t === 'M' ? p.n : tc(p.t === 'R' ? String(p.n).replace(/^CRUCERO\s+/i, '') : p.n) + (p.rot ? ' (' + p.rot + ')' : ''); }
+
+  /* ---------------- íconos: un solo dibujo en canvas para 3D (addImage) y 2D (L.icon) ---------------- */
+  function dibuja(o) {
+    var pad = o.n > 1 ? 9 : 4, W = Math.round(o.tam + pad * 2), c = document.createElement('canvas');
+    c.width = c.height = W * DPR;
+    var g = c.getContext('2d'); g.scale(DPR, DPR);
+    var cx = W / 2, cy = W / 2, r = o.tam / 2 - 1.5;
+    var camino = function () {
+      g.beginPath();
+      if (o.forma === 'c') g.arc(cx, cy, r, 0, Math.PI * 2);
+      else if (o.forma === 's') { var a = r * 0.92, k = 4; g.moveTo(cx - a + k, cy - a); g.lineTo(cx + a - k, cy - a); g.quadraticCurveTo(cx + a, cy - a, cx + a, cy - a + k); g.lineTo(cx + a, cy + a - k); g.quadraticCurveTo(cx + a, cy + a, cx + a - k, cy + a); g.lineTo(cx - a + k, cy + a); g.quadraticCurveTo(cx - a, cy + a, cx - a, cy + a - k); g.lineTo(cx - a, cy - a + k); g.quadraticCurveTo(cx - a, cy - a, cx - a + k, cy - a); }
+      else { var R = r * 1.12; g.moveTo(cx, cy - R); g.lineTo(cx + R, cy); g.lineTo(cx, cy + R); g.lineTo(cx - R, cy); }
+      g.closePath();
+    };
+    g.globalAlpha = o.tenue ? 0.8 : 1;
+    camino(); g.lineWidth = 5; g.strokeStyle = 'rgba(0,0,0,0.5)'; g.stroke();
+    camino(); g.fillStyle = FONDO; g.fill();
+    camino(); g.lineWidth = o.tam < 24 ? 2.2 : 2.8; g.strokeStyle = o.anillo;
+    if (o.punteado) g.setLineDash([3.4, 2.4]);
+    g.stroke(); g.setLineDash([]);
+    g.fillStyle = LETRA; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.font = '700 ' + Math.round(o.tam * (o.forma === 'd' ? 0.46 : 0.52)) + 'px Archivo, "IBM Plex Sans", sans-serif';
+    g.fillText(o.letra, cx, cy + 1);
+    if (o.n > 1) {
+      var bx = cx + r * 0.78, by = cy - r * 0.78;
+      g.globalAlpha = 1; g.beginPath(); g.arc(bx, by, 7.5, 0, Math.PI * 2); g.fillStyle = CUENTA; g.fill(); g.lineWidth = 1.5; g.strokeStyle = '#1B1B1B'; g.stroke();
+      g.fillStyle = '#1B1B1B'; g.font = '700 10px "IBM Plex Sans", sans-serif'; g.fillText(String(o.n), bx, by + 0.5);
+    }
+    return { w: W, url: c.toDataURL('image/png'), img: g.getImageData(0, 0, c.width, c.height) };
+  }
+  function claveIco(g) {
+    var p = g.it[0], col = colindante(p), baja = g.it.some(function (x) { return x.conf === 'BAJA'; });
+    var k = g.t + (col ? 'k' : '') + (baja ? 'b' : '') + (g.it.length > 1 ? g.it.length : '');
+    if (!ICO[k]) {
+      var T = TIPOS[g.t];
+      ICO[k] = dibuja({ forma: T.forma, anillo: col ? TIPOS.T.anillo : T.anillo, letra: T.letra, tam: T.tam, tenue: T.tenue && !col, punteado: T.punteado || baja, n: g.it.length });
+    }
+    return k;
+  }
+  function agrupa() {
+    var idx = {};
+    DAT.puntos.forEach(function (p) {
+      var k = p.t + '|' + p.la + '|' + p.lo;
+      if (idx[k] == null) { idx[k] = GR.length; GR.push({ i: GR.length, t: p.t, la: p.la, lo: p.lo, it: [] }); }
+      GR[idx[k]].it.push(p);
+    });
+    GR.forEach(function (g) { g.sp = g.it[0].sp; g.ico = claveIco(g); });
+  }
+  function muestraIco(t, extra) {
+    var T = TIPOS[t], k = 'ley-' + t + (extra || '');
+    if (!ICO[k]) ICO[k] = dibuja({ forma: T.forma, anillo: extra === 'k' ? TIPOS.T.anillo : T.anillo, letra: T.letra, tam: T.tam, tenue: T.tenue && extra !== 'k', punteado: T.punteado || extra === 'b', n: 1 });
+    return '<img class="D04ZP_ico" src="' + ICO[k].url + '" alt="" width="' + Math.round(ICO[k].w * 0.72) + '" height="' + Math.round(ICO[k].w * 0.72) + '">';
+  }
+
+  /* ---------------- dato vivo de la sección (mismo cálculo que el mapa) ---------------- */
+  function meta(x) {
+    if (!global.CxMeta || !x || x.val == null || x.tv == null) return null;
+    var st = P.metaSt(), r = global.CxMeta.avance(st, x.val, x.tv, 1);
+    if (r == null) return null;
+    return { st: st, ok: r >= 1, faltan: r >= 1 ? 0 : global.CxMeta.objetivo(st, x.tv, 1) - x.val };
+  }
+  function filaSec(s) { return s == null ? null : P.secciones(P.S.el, P.S.f).by[s] || null; }
+  function vivo(s) {
+    if (s == null) return '<p class="D04ZP_vivo">Fuera del Distrito 4: sin dato de sección en este mapa.</p>';
+    var x = filaSec(s), nF = e(P.nombreF(P.S.f)), el = e(P.ELX[P.S.el].nombre);
+    if (!x || x.val == null) return '<p class="D04ZP_vivo">Sección <b>' + s + '</b>: ' + nF + ' sin dato en ' + el + '.</p>';
+    var m = meta(x), h = 'Sección <b>' + s + '</b> · ' + nF + ' en ' + el + ': <b>' + P.fmt(x.val) + ' votos</b>' + (x.pct != null ? ' (' + P.pc(x.pct) + ')' : '');
+    if (m) h += m.ok ? ' · <b>alcanza la meta</b> de ' + e(global.CxMeta.texto(m.st)) : ' · faltan <b>' + P.fmt(Math.ceil(m.faltan)) + '</b> para la meta de ' + e(global.CxMeta.texto(m.st));
+    return '<p class="D04ZP_vivo">' + h + '.</p>';
+  }
+
+  /* ---------------- globo (paso del puntero) y ficha (clic) ---------------- */
+  function tipHTML(g) {
+    var T = TIPOS[g.t], p = g.it[0];
+    var cab = '<b>' + e(T.nom) + (g.it.length > 1 ? ' · ' + g.it.length + ' en el mismo punto' : '') + '</b><br>';
+    var nom = g.it.map(function (x) { return e(nombre(x)); }).join(', ');
+    var det = g.t === 'T' || g.t === 'F' ? dia(p.dia) + (p.calle ? ' · ' + e(tc(p.calle)) : '') : g.t === 'M' ? e(p.tipo) : g.t === 'R' ? 'Sección federal ' + g.it.map(function (x) { return x.sf; }).join(', ') : e(tc(p.col));
+    var extra = g.t === 'F' ? '<br><i>' + (colindante(p) ? 'Colindante, a ' + P.fmt(p.dm) + ' m del límite' : 'A ' + dist(p.dm) + ' del Distrito 4') + '</i>' : '';
+    var baja = g.it.some(function (x) { return x.conf === 'BAJA'; }) ? '<br><i>Ubicación por confirmar en campo</i>' : '';
+    return cab + nom + '<br><span class="D04ZP_tip-d">' + det + '</span>' + extra + baja + '<br><span class="D04ZP_tip-d">Clic para ver la ficha</span>';
+  }
+  function fila(et, v) { return v == null || v === '' ? '' : '<dt>' + et + '</dt><dd>' + v + '</dd>'; }
+  function secTxt(p) {
+    if (p.sp == null) return null;
+    if (p.t === 'R') return p.sp === p.sf ? String(p.sp) : p.sp + ' <i>(el crucero queda sobre el polígono 2024 ' + p.sp + ')</i>';
+    if (p.sa != null && p.sa !== p.sp) return p.sp + ' <i>(el archivo dice ' + p.sa + '; el punto cae en el polígono ' + p.sp + ', sobre el límite)</i>';
+    return String(p.sp);
+  }
+  function fichaItem(p) {
+    var T = TIPOS[p.t], h = '<h4>' + muestraIco(p.t, colindante(p) ? 'k' : p.conf === 'BAJA' ? 'b' : '') + '<span>' + e(nombre(p)) + '<small>' + e(T.nom) + '</small></span></h4><dl>';
+    if (p.t === 'T') h += fila('Día', e(dia(p.dia))) + fila('Calle', e(tc(p.calle))) + fila('Tramo', p.ini || p.fin ? e(tc(p.ini)) + ' a ' + e(tc(p.fin)) : null) + fila('Colonia', e(p.col)) + fila('Sección', secTxt(p)) + fila('Secciones del tramo', e(p.tramo)) + fila('Sección federal', e(p.sf));
+    if (p.t === 'M') h += fila('Tipo', e(p.tipo)) + fila('Dirección', e(p.dir)) + fila('Colonia', e(p.col)) + fila('Sección', secTxt(p)) + fila('Sección federal', e(p.sf));
+    if (p.t === 'C') h += fila('Colonia', e(p.col)) + fila('Sección', secTxt(p)) + fila('Sección federal', e(p.sf)) + (p.rot ? fila('Nota', 'Hay dos cruces con este nombre en el archivo; este es el ' + p.rot + '. Revisa la liga antes de agendar.') : '');
+    if (p.t === 'R') {
+      var v = p.v18;
+      h += fila('Sección federal 2025', '<b>' + e(p.sf) + '</b>') + fila('Polígono 2024', secTxt(p)) + fila('Colonias', e(tc(p.col))) +
+        (v ? fila('Federal 2018', 'Verde ' + P.fmt(v.PVEM) + ' · MORENA ' + P.fmt(v.MORENA) + ' · MC ' + P.fmt(v.MC) + ' · PAN ' + P.fmt(v.PAN) + '<br>Total ' + P.fmt(v['TOTAL VOTOS']) + ' de ' + P.fmt(v['LISTA NOMINAL']) + ' en lista nominal' + (p.gp ? ' · MORENA ' + (p.gp === 'GANADO' ? 'ganó' : 'perdió') + ' la sección' : ''))
+          : fila('Federal 2018', 'sin dato propio (sección creada después de 2018)')) +
+        fila('Distrito federal 2018', e(p.d18));
+    }
+    if (p.t === 'F') h += fila('Día', e(dia(p.dia))) + fila('Calle', e(tc(p.calle))) + fila('Resultado', e(p.res)) + fila('Detalle', e(p.det)) + fila('Distancia al D4', dist(p.dm));
+    if (p.conf) h += fila('Confianza', '<b>' + e(p.conf) + '</b>' + (p.como ? ' · ' + e(p.como) : ''));
+    if (p.obs) h += fila('Observaciones', e(p.obs));
+    return h + '</dl>';
+  }
+  function ficha(g) {
+    var h = '<div class="D04ZP_ficha">' + g.it.map(fichaItem).join('<hr>') + vivo(g.sp) + '<div class="D04ZP_acc">';
+    if (g.sp != null) h += '<button type="button" class="D04Z_btn D04ZP_marca" data-d04zp_sec="' + g.sp + '">Marcar sección ' + g.sp + '</button>';
+    h += '<a href="https://www.google.com/maps?q=' + g.la + ',' + g.lo + '" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a></div></div>';
+    return h;
+  }
+
+  /* ---------------- vista 3D (MapLibre): capa de símbolos sin glifos ---------------- */
+  var M3 = null, POP3 = null;
+  function monta3D() {
+    var A = global.D04Z3D, M = A && A.mapa;
+    if (!M || !A.listo() || !GR.length) return;
+    if (M3 === M && M.getLayer('D04ZP-pts')) { filtra3D(); return; }
+    M3 = M;
+    Object.keys(ICO).forEach(function (k) { if (!M.hasImage('D04ZP-' + k)) M.addImage('D04ZP-' + k, ICO[k].img, { pixelRatio: DPR }); });
+    M.addSource('D04ZP-pts', { type: 'geojson', data: { type: 'FeatureCollection', features: GR.map(function (g) { return { type: 'Feature', properties: { g: g.i, tp: g.t, ico: 'D04ZP-' + g.ico, z: TIPOS[g.t].z }, geometry: { type: 'Point', coordinates: [g.lo, g.la] } }; }) } });
+    M.addLayer({ id: 'D04ZP-pts', type: 'symbol', source: 'D04ZP-pts', layout: {
+      'icon-image': ['get', 'ico'], 'icon-allow-overlap': true, 'icon-ignore-placement': true, 'symbol-sort-key': ['get', 'z'],
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 10, 0.6, 13, 0.85, 16, 1.1], 'icon-pitch-alignment': 'viewport', 'icon-rotation-alignment': 'viewport' } });
+    filtra3D();
+  }
+  function filtra3D() {
+    if (!M3 || !M3.getLayer('D04ZP-pts')) return;
+    M3.setFilter('D04ZP-pts', ['in', ['get', 'tp'], ['literal', Object.keys(TIPOS).filter(visibleTipo)]]);
+    if (POP3 && POP3.D04ZP_t && !visibleTipo(POP3.D04ZP_t)) { POP3.remove(); POP3 = null; }
+  }
+  /* golpe propio en píxeles: no depende del índice de colisión de MapLibre */
+  function golpe3D(pt) {
+    if (!M3 || !M3.getLayer('D04ZP-pts')) return null;
+    var z = M3.getZoom(), k = z <= 10 ? 0.6 : z <= 13 ? 0.6 + (z - 10) / 3 * 0.25 : z <= 16 ? 0.85 + (z - 13) / 3 * 0.25 : 1.1, mejor = null;
+    GR.forEach(function (g) {
+      if (!visibleTipo(g.t)) return;
+      var q = M3.project([g.lo, g.la]), d = Math.hypot(q.x - pt.x, q.y - pt.y), rad = TIPOS[g.t].tam / 2 * k + 3;
+      if (d <= rad && (!mejor || TIPOS[g.t].z > TIPOS[mejor.g.t].z || (TIPOS[g.t].z === TIPOS[mejor.g.t].z && d < mejor.d))) mejor = { g: g, d: d };
+    });
+    return mejor ? mejor.g : null;
+  }
+  function abre3D(g) {
+    if (POP3) POP3.remove();
+    var tip = $('#D04Z3D_tip'); if (tip) tip.hidden = true;
+    POP3 = new maplibregl.Popup({ closeButton: true, closeOnClick: true, maxWidth: '340px', className: 'D04ZP_pop', offset: 14, focusAfterOpen: false })
+      .setLngLat([g.lo, g.la]).setHTML(ficha(g)).addTo(M3);
+    POP3.D04ZP_t = g.t;
+  }
+
+  /* ---------------- vista 2D (Leaflet): panel propio sobre los polígonos ---------------- */
+  var L2 = null, CAPAS2 = {};
+  function monta2D() {
+    var MAPA = P.mapa2D();
+    if (!MAPA || typeof L === 'undefined' || !GR.length) return;
+    if (L2 === MAPA) { filtra2D(); return; }
+    L2 = MAPA;
+    if (!MAPA.getPane('D04ZP_pane')) MAPA.createPane('D04ZP_pane').style.zIndex = 620;
+    Object.keys(TIPOS).forEach(function (k) { CAPAS2[k] = L.layerGroup(); });
+    GR.slice().sort(function (a, b) { return TIPOS[a.t].z - TIPOS[b.t].z; }).forEach(function (g) {
+      var ic = ICO[g.ico], w = ic.w;
+      var mk = L.marker([g.la, g.lo], { pane: 'D04ZP_pane', keyboard: true, zIndexOffset: TIPOS[g.t].z * 1000, title: g.it.map(nombre).join(', '), alt: TIPOS[g.t].nom,
+        icon: L.icon({ iconUrl: ic.url, iconSize: [w, w], iconAnchor: [w / 2, w / 2], popupAnchor: [0, -w / 2 + 4], tooltipAnchor: [0, -w / 2 + 2], className: 'D04ZP_ico2d' }) });
+      mk.bindTooltip(function () { return tipHTML(g); }, { direction: 'top', className: 'D04ZP_tip2d' });
+      mk.bindPopup(function () { return ficha(g); }, { maxWidth: 340, className: 'D04ZP_pop', autoPanPadding: [20, 20] });
+      mk.on('popupopen', function () { mk.closeTooltip(); });
+      CAPAS2[g.t].addLayer(mk);
+    });
+    filtra2D();
+  }
+  function filtra2D() {
+    if (!L2) return;
+    Object.keys(CAPAS2).forEach(function (k) { var on = visibleTipo(k), est = L2.hasLayer(CAPAS2[k]); if (on && !est) CAPAS2[k].addTo(L2); if (!on && est) { L2.closePopup(); L2.removeLayer(CAPAS2[k]); } });
+  }
+
+  /* ---------------- barra: SUGERIDOS | TODOS y casillas T · M · C ---------------- */
+  function cuentaVisible() { return GR.reduce(function (a, g) { return a + (visibleTipo(g.t) ? g.it.length : 0); }, 0); }
+  function montaBarra() {
+    var c = DAT.cuenta;
+    APP.querySelectorAll('[data-d04zp_tipo]').forEach(function (inp) {
+      var t = inp.getAttribute('data-d04zp_tipo'); inp.checked = VIS[t];
+      inp.insertAdjacentHTML('afterend', muestraIco(t));
+      inp.addEventListener('change', function () { VIS[t] = inp.checked; guarda('D04ZP_tipos', JSON.stringify(VIS)); aplica(); });
+    });
+    APP.querySelectorAll('[data-d04zp_modo]').forEach(function (b) { b.addEventListener('click', function () { MODO = b.getAttribute('data-d04zp_modo') === 'todos' ? 'todos' : 'sug'; aplica(); }); });
+    var lejos = DAT.puntos.filter(function (p) { return p.t === 'F'; }).reduce(function (a, p) { return Math.max(a, p.dm || 0); }, 0);
+    var nk = DAT.puntos.filter(colindante).length;
+    $('#D04ZP_nota-todos').innerHTML = '<b>TODOS</b> suma ' + c.F + ' ' + muestraIco('F') + ' tianguis fuera del Distrito 4 (' + nk + ' colindantes ' + muestraIco('F', 'k') + ' a menos de 500 m del límite; el más lejano a ' + dist(lejos) + ') y ' + c.R + ' ' + muestraIco('R') + ' lugares de reunión, uno por sección federal 2025. ' +
+      'Sin coordenadas en su liga, fuera del mapa: ' + DAT.sin_coord.map(function (n) { return e(tc(n)); }).join(', ') + '. El zoom no cambia: usa <b>⌂ Encuadrar</b> (3D) para volver al distrito.';
+    $('#D04ZP_nota-ley').innerHTML = 'Forma y letra dicen el tipo: ' + muestraIco('T') + ' tianguis, ' + muestraIco('M') + ' mercado, ' + muestraIco('C') + ' crucero. Anillo punteado ' + muestraIco('T', 'b') + ' = ubicación por confirmar en campo (confianza baja en el archivo). El número amarillo indica varios puntos en la misma coordenada.';
+  }
+  function pintaBarra() {
+    APP.querySelectorAll('[data-d04zp_modo]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-d04zp_modo') === MODO ? 'true' : 'false'); });
+    var c = DAT.cuenta;
+    var n = { T: c.T + (MODO === 'todos' ? c.F : 0), M: c.M, C: c.C + (MODO === 'todos' ? c.R : 0) };
+    ['T', 'M', 'C'].forEach(function (t) { var s = $('#D04ZP_n-' + t); if (s) s.textContent = '(' + n[t] + ')'; });
+    $('#D04ZP_cuenta').textContent = 'Mostrando ' + cuentaVisible() + ' puntos';
+    $('#D04ZP_nota-todos').hidden = MODO !== 'todos';
+  }
+  function aplica() { if (!DAT) return; pintaBarra(); filtra3D(); filtra2D(); lectura(); }
+
+  /* ---------------- lectura del operador y «Cómo implementarlo» ---------------- */
+  function lectura() {
+    var n = $('#D04ZP_lec'); if (!n || !P || !DAT) return;
+    var nF = e(P.nombreF(P.S.f)), el = e(P.ELX[P.S.el].nombre), c = DAT.cuenta;
+    var sug = DAT.puntos.filter(function (p) { return p.t === 'T' || p.t === 'M' || p.t === 'C'; });
+    var est = function (p) { var x = filaSec(p.sp); return { p: p, x: x, m: meta(x) }; };
+    var E = sug.map(est), deb = function (o) { return o.m && !o.m.ok; }, deT = function (t) { return E.filter(function (o) { return o.p.t === t; }); };
+    var Lp = [], I = [];
+    Lp.push('Puntos SUGERIDOS: <b>' + c.T + ' tianguis, ' + c.M + ' mercados y ' + c.C + ' cruceros principales</b>, los ' + (c.T + c.M + c.C) + ' dentro del Distrito 4. TODOS agrega ' + c.F + ' tianguis fuera del distrito y ' + c.R + ' lugares de reunión. Cada punto se liga a la sección 2024 en la que cae su coordenada, la misma que colorea el mapa.');
+    var tieneMeta = E.some(function (o) { return o.m; });
+    if (tieneMeta) {
+      var st = P.metaSt(), mt = e(global.CxMeta.texto(st));
+      var T = deT('T'), Td = T.filter(deb), sec = {}, falt = 0;
+      Td.forEach(function (o) { if (!sec[o.p.sp]) { sec[o.p.sp] = 1; falt += o.m.faltan; } });
+      var porDia = DIAS.map(function (d) { return { d: d, a: Td.filter(function (o) { return o.p.dia === d; }).sort(function (a, b) { return b.m.faltan - a.m.faltan; }) }; }).filter(function (x) { return x.a.length; });
+      if (!Td.length) Lp.push('Con meta de <b>' + mt + '</b>, ningún tianguis cae en secciones donde ' + nF + ' queda debajo en ' + el + ': los ' + T.length + ' están en secciones que ya la alcanzan o sin dato.');
+      else Lp.push('Con meta de <b>' + mt + '</b>, <b>' + Td.length + ' de ' + T.length + ' tianguis</b> caen en secciones donde ' + nF + ' queda debajo en ' + el + '; esas ' + Object.keys(sec).length + ' secciones suman ≈ <b>' + P.fmt(falt) + ' votos faltantes</b>.' + (porDia.length ? ' Por día: ' + porDia.map(function (x) { return dia(x.d) + ' ' + x.a.length; }).join(', ') + '.' : ''));
+      var Md = deT('M').filter(deb).sort(function (a, b) { return b.m.faltan - a.m.faltan; });
+      Lp.push(!Md.length ? 'Ningún mercado queda en secciones debajo de la meta.' : '<b>' + Md.length + ' de ' + c.M + ' mercados</b> están en secciones debajo de la meta' + (Md.length ? ': ' + Md.map(function (o) { return e(o.p.n.replace('Mercado Municipal ', '')) + ' (' + o.p.sp + ', faltan ' + P.fmt(Math.ceil(o.m.faltan)) + ')'; }).join(', ') : '') + '.');
+      var Cd = deT('C').filter(deb).sort(function (a, b) { return b.m.faltan - a.m.faltan; });
+      Lp.push(!Cd.length ? 'Ningún crucero principal queda en secciones debajo de la meta.' : '<b>' + Cd.length + ' de ' + c.C + ' cruceros principales</b> quedan en secciones debajo de la meta' + (Cd.length ? '; los de más faltantes: ' + Cd.slice(0, 4).map(function (o) { return e(nombre(o.p)) + ' (' + o.p.sp + ')'; }).join('; ') : '') + '.');
+      if (porDia.length) I.push('<b>Ruta semanal de tianguis.</b> ' + porDia.map(function (x) { return '<b>' + dia(x.d).charAt(0).toUpperCase() + dia(x.d).slice(1) + ':</b> ' + x.a.map(function (o) { return e(nombre(o.p)) + ' (' + o.p.sp + ', faltan ' + P.fmt(Math.ceil(o.m.faltan)) + ')'; }).join(', '); }).join(' · ') + '. Un equipo por tianguis en su día; mide contactos y registros por visita y compáralos cada semana con los faltantes de su sección.');
+      if (Md.length) I.push('<b>Mercados como punto fijo.</b> Empieza por ' + Md.slice(0, 3).map(function (o) { return e(o.p.n.replace('Mercado Municipal ', '')); }).join(', ') + ': módulo de atención en la banqueta, sin fijar propaganda en el inmueble (un mercado municipal es edificio público, LGIPE art. 250). Mide registros por semana contra los faltantes de la sección.');
+      if (Cd.length) I.push('<b>Cruceros para visibilidad.</b> Prioriza ' + Cd.slice(0, 3).map(function (o) { return e(nombre(o.p)); }).join('; ') + '. Mide piezas entregadas por turno y repite donde la sección siga debajo de la meta al corte siguiente.');
+      var R = DAT.puntos.filter(function (p) { return p.t === 'R'; }).map(est).filter(deb), vistos = {};
+      R = R.sort(function (a, b) { return b.m.faltan - a.m.faltan; }).filter(function (o) { if (vistos[o.p.sp]) return false; vistos[o.p.sp] = 1; return true; });
+      if (R.length) I.push('<b>Lugares de reunión</b> (actívalos con TODOS) como cita de la estructura seccional. Empieza por las secciones con más faltantes: ' + R.slice(0, 5).map(function (o) { return e(nombre(o.p)) + ' (federal ' + o.p.sf + ', polígono ' + o.p.sp + ')'; }).join('; ') + '.');
+    } else {
+      var Tv = deT('T').filter(function (o) { return o.x && o.x.val != null; }).sort(function (a, b) { return a.x.val - b.x.val; });
+      if (Tv.length) Lp.push('Tianguis en las secciones donde ' + nF + ' tiene menos votos en ' + el + ': ' + Tv.slice(0, 5).map(function (o) { return e(nombre(o.p)) + ' (' + o.p.sp + ', ' + P.fmt(o.x.val) + ')'; }).join(', ') + '.');
+    }
+    var baja = sug.filter(function (p) { return p.conf === 'BAJA'; });
+    if (baja.length) {
+      Lp.push(baja.length + ' ubicaciones tienen confianza baja en el archivo y van con anillo punteado: ' + baja.map(function (p) { return e(nombre(p)); }).join(', ') + '.');
+      I.push('<b>Confirma en campo antes de agendar</b> las ' + baja.length + ' ubicaciones con anillo punteado y corrige la coordenada en el archivo para la siguiente versión.');
+    }
+    if (P.S.sel.length) {
+      var aqui = DAT.puntos.filter(function (p) { return p.sp != null && P.S.sel.indexOf(p.sp) >= 0; });
+      Lp.push('<b>En ' + (P.S.sel.length > 1 ? 'las secciones ' : 'la sección ') + P.S.sel.join(' + ') + ':</b> ' + (aqui.length ? aqui.map(function (p) { return TIPOS[p.t].nom.toLowerCase() + ' ' + e(nombre(p)) + (p.dia ? ' (' + dia(p.dia) + ')' : ''); }).join('; ') : 'ningún punto de territorio en los archivos') + '.');
+    }
+    if (I.length) I.push('Fuera del periodo de campaña, solo actividades sin llamado expreso al voto (actos anticipados de campaña, LGIPE art. 3).');
+    n.innerHTML = '<b class="D04Z_lec-t">Lectura del operador · puntos de territorio</b>' + Lp.map(function (p) { return '<p>' + p + '</p>'; }).join('') +
+      (I.length ? '<div class="D04Z_impl"><b class="D04Z_lec-t">Cómo implementarlo para mejorar la respuesta e incrementar la cantidad de votos para ' + nF + '</b><ol>' + I.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ol></div>' : '');
+  }
+
+  /* ---------------- arranque perezoso y enlace con el módulo ---------------- */
+  function descomprime(b64) {
+    var bytes = Uint8Array.from(atob(b64), function (c) { return c.charCodeAt(0); });
+    if (typeof DecompressionStream === 'undefined') return Promise.reject(new Error('Este navegador no descomprime gzip (DecompressionStream).'));
+    return new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text().then(JSON.parse);
+  }
+  function conecta() {
+    if (P) return true;
+    if (!global.D04Z_Puente3D || cargando) return false;
+    cargando = true;
+    var fuentes = document.fonts && document.fonts.load ? Promise.all([document.fonts.load('700 16px Archivo'), document.fonts.load('700 10px "IBM Plex Sans"')]).catch(function () { }) : Promise.resolve();
+    Promise.all([descomprime(global.D04ZP_GZ), fuentes]).then(function (r) {
+      P = global.D04Z_Puente3D; DAT = r[0];
+      agrupa(); montaBarra(); aplica(); monta2D(); monta3D();
+      APP.addEventListener('click', function (ev) {
+        var b = ev.target.closest && ev.target.closest('[data-d04zp_sec]'); if (!b) return;
+        var s = +b.getAttribute('data-d04zp_sec');
+        if (POP3) { POP3.remove(); POP3 = null; } if (L2) L2.closePopup();
+        P.selecciona([s]);
+      });
+      global.D04ZP_listo = true;
+    }).catch(function (err) { cargando = false; if (global.console) console.error(err); var n = $('#D04ZP_cuenta'); if (n) n.textContent = 'No se pudieron cargar los puntos: ' + err.message; });
+    return false;
+  }
+  global.D04ZP = {
+    repinta: function () { if (conecta()) { monta2D(); monta3D(); aplica(); } },
+    lectura: function () { if (P && DAT) lectura(); },
+    puntero3D: function (e) { var g = P && golpe3D(e.point); return g ? tipHTML(g) : null; },
+    clic3D: function (e) { var g = P && golpe3D(e.point); if (!g) return false; abre3D(g); return true; },
+    modo: function (m) { if (m) { MODO = m === 'todos' ? 'todos' : 'sug'; aplica(); } return MODO; },
+    get grupos() { return GR; },
+    get datos() { return DAT; }
   };
 })(window);
 </script>
@@ -2855,6 +3260,7 @@ return maplibregl$1;
     pintaSel(false); if (S.sel.length) fichaMapa(S.sel.length > 1 ? poliMulti() : S.sel[0]);
     pintaCasillas(); pintaResumen(); lecMapa();
     if (window.D04Z3D) window.D04Z3D.repinta(); /* M2 */
+    if (window.D04ZP) window.D04ZP.repinta(); /* M3 */
   }
   function fichaMapa(sNuevo) {
     var x = datoMapa(sNuevo), F = $('#D04Z_ficha');
@@ -3722,6 +4128,7 @@ return maplibregl$1;
     }
     if (S.sel.length) { var x = S.sel.length === 1 ? seccionDe(S.el, S.f, S.sel[0]) : seccionesMapa(S.el, S.f, poliMulti()); if (x) L.push('<b>' + nombreSel(S.sel) + (S.sel.length > 1 ? ' marcadas:</b> ' : ' marcada:</b> ') + nF + ' ' + pc(x.pct) + ', ' + esc(x.tipo.toLowerCase()) + ', prioridad ' + esc(x.prio.toLowerCase()) + (x.porque ? ' (' + esc(x.porque.charAt(0).toLowerCase() + x.porque.slice(1)) + ')' : '') + '. Sus casillas y su resumen están abajo.'); }
     lec('D04Z_lec-mapa', L);
+    if (window.D04ZP) window.D04ZP.lectura(); /* M3 */
   }
 
   /* ---------------- casillas ---------------- */
@@ -4467,12 +4874,12 @@ return maplibregl$1;
       if (window.CxReal) window.CxReal.cargar().then(function () { if (S.vista === 'panorama') pintaOperador(); else if (S.vista === 'mapa') pintaResumen(); });
       controles(); llenaSelInf(); marcaGlobal();
       $('#D04Z_cargando').hidden = true;
-      $('#D04Z_pie').textContent = 'Módulo D04Z_ 2026-10-13.C1 (datos ' + D.version + ') · generado el 13 de octubre de 2026. Datos incrustados e independientes del Distrito 10; funciona sin conexión salvo las teselas del mapa y las tipografías. Fuentes: cómputos por casilla 2024 local (IEPC Jalisco) y federal (INE) del Distrito 4, padrón municipal de tianguis de Zapopan y cartografía seccional de la página Electoral. Sin histórico 2015–2021, acta local, agenda ni colonias del Distrito 4 en el proyecto. Extracción 2026-10-16.M1: solo la subpestaña Mapa. 2026-10-16.M2: vista 3D (MapLibre GL 4.7.1 incrustado; colores y cálculos del mapa 2D; secciones partidas unidas en un solo sólido).';
+      $('#D04Z_pie').textContent = 'Módulo D04Z_ 2026-10-13.C1 (datos ' + D.version + ') · generado el 13 de octubre de 2026. Datos incrustados e independientes del Distrito 10; funciona sin conexión salvo las teselas del mapa y las tipografías. Fuentes: cómputos por casilla 2024 local (IEPC Jalisco) y federal (INE) del Distrito 4, padrón municipal de tianguis de Zapopan y cartografía seccional de la página Electoral. Sin histórico 2015–2021, acta local, agenda ni colonias del Distrito 4 en el proyecto. Extracción 2026-10-16.M1: solo la subpestaña Mapa. 2026-10-16.M2: vista 3D (MapLibre GL 4.7.1 incrustado; colores y cálculos del mapa 2D; secciones partidas unidas en un solo sólido). 2026-10-17.M3: puntos de territorio (tianguis, mercados y cruceros; SUGERIDOS y TODOS) en 3D y 2D.';
       var v = 'panorama'; try { v = localStorage.getItem('D04Z_vista') || 'panorama'; } catch (e) { }
       if (SUB_PEND) { v = SUB_PEND; SUB_PEND = null; }
       if (!document.getElementById('D04Z_v-' + v)) v = 'panorama';
       /* M2 · puente de solo lectura (más tres acciones) para la vista 3D: mismo color, mismos cálculos */
-      window.D04Z_Puente3D = { S: S, D: D, DIST: DIST, PARTIDAS: PARTIDAS, ELX: ELX, css: css, esc: esc, nombreF: nombreF, colorMapa: colorMapa, datoMapa: datoMapa, tipMapa: tipMapa, divSeccion: divSeccion, partSeccion: partSeccion, selecciona: selecciona, clicFuera: clicFuera, ajusta2D: ajusta2D };
+      window.D04Z_Puente3D = { S: S, D: D, DIST: DIST, PARTIDAS: PARTIDAS, ELX: ELX, css: css, esc: esc, nombreF: nombreF, colorMapa: colorMapa, datoMapa: datoMapa, tipMapa: tipMapa, divSeccion: divSeccion, partSeccion: partSeccion, selecciona: selecciona, clicFuera: clicFuera, ajusta2D: ajusta2D, secciones: secciones, metaSt: metaSt, fmt: fmt, pc: pc, mapa2D: function () { return MAPA; } }; /* M3: + puntos de territorio */
       activa('mapa'); /* M1 · única subpestaña */
       window.D04Z_App = { estado: S, datos: D, secciones: secciones, escenario: escenario, total: total, valor: valor, ELX: ELX, activa: activa };
     }).catch(function (err) { $('#D04Z_cargando').textContent = 'No se pudieron cargar los datos: ' + err.message; console.error(err); });
