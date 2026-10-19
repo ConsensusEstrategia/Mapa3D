@@ -6,11 +6,11 @@
 <meta name="author" content="Consensus Estrategia">
 <meta name="color-scheme" content="light dark">
 <meta name="description" content="Mapa seccional 3D del Distrito 4 de Zapopan (diputación local y federal, cómputos 2024): extracción de la subpestaña Mapa de la página Electoral de Consensus Estrategia.">
-<!-- Sellos: 2026-10-18.M4 (lista nominal por edad y sexo) sobre 2026-10-17.M3 (puntos de territorio) sobre 2026-10-16.M2 (vista 3D) sobre la extracción 2026-10-16.M1 desde la compilación 2026-10-13.F10 (módulo D04Z 2026-10-13.C1). -->
-<meta name="Consensus-version" content="2026-10-18.M4">
+<!-- Sellos: 2026-10-18.M5 (tarjeta demográfica e informe por superficie) sobre 2026-10-18.M4 (lista nominal por edad y sexo) sobre 2026-10-17.M3 (puntos de territorio) sobre 2026-10-16.M2 (vista 3D) sobre la extracción 2026-10-16.M1 desde la compilación 2026-10-13.F10 (módulo D04Z 2026-10-13.C1). -->
+<meta name="Consensus-version" content="2026-10-18.M5">
 <meta name="D04Z3D_version" content="2026-10-16.M2">
 <meta name="D04ZP_version" content="2026-10-17.M3">
-<meta name="D04ZE_version" content="2026-10-18.M4">
+<meta name="D04ZE_version" content="2026-10-18.M5">
 <meta name="D04Z_version" content="2026-10-13.C1">
 <meta name="Fuente-compilacion" content="2026-10-13.F10">
 <title>Distrito 4 Zapopan · Mapa 3D</title>
@@ -946,6 +946,37 @@ body.D04Z_pdf-cap #D04Z_app .D04Z_res-col + .D04Z_res-col{border-left:1px solid 
 @media (max-width:720px){#D04Z_app .D04ZE_csv{margin-left:0}#D04Z_app .D04ZE_kpi b{font-size:18px}}
 @media print{#D04Z_app .D04ZE_herr{display:none!important}}
 </style>
+<style>
+/* M5 · Tarjeta demográfica en la ficha e informe por superficie */
+#D04Z_app .D04ZE_fc{border-top:1px solid var(--D04Z_filete);margin-top:8px;padding-top:8px;font-size:11.5px;line-height:1.35;color:var(--D04Z_tinta)}
+#D04Z_app .D04ZE_fc-cab{display:flex;justify-content:space-between;align-items:baseline;gap:6px}
+#D04Z_app .D04ZE_fc-cab b{font:700 11px/1.2 var(--D04Z_f-titulo);letter-spacing:.06em;text-transform:uppercase;color:var(--D04Z_tinta2)}
+#D04Z_app .D04ZE_fc-cab span,#D04Z_app .D04ZE_fc-sub{color:var(--D04Z_tinta3)}
+#D04Z_app .D04ZE_fc-sub b{color:var(--D04Z_tinta)}
+#D04Z_app .D04ZE_fc-par{background:#FFE45C;color:#1B1B1B;border-radius:4px;padding:0 5px;font-weight:700}
+#D04Z_app .D04ZE_fc-dos{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:5px 0}
+#D04Z_app .D04ZE_fc-dos div{background:var(--D04Z_panel2);border-radius:7px;padding:4px 7px;color:var(--D04Z_tinta2);min-width:0}
+#D04Z_app .D04ZE_fc-dos b{font:700 14px/1.2 var(--D04Z_f-titulo);color:var(--D04Z_tinta)}
+#D04Z_app .D04ZE_fc-barras{display:grid;grid-template-columns:1fr 1fr;gap:3px 12px}
+#D04Z_app .D04ZE_fc-b{display:grid;grid-template-columns:34px minmax(0,1fr) 30px;gap:4px;align-items:center;font-variant-numeric:tabular-nums}
+#D04Z_app .D04ZE_fc-b span:last-child{text-align:right}
+#D04Z_app .D04ZE_fc-pista{position:relative;height:7px;border-radius:4px;background:var(--D04Z_panel3)}
+#D04Z_app .D04ZE_fc-pista i{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:#E88A3C}
+#D04Z_app .D04ZE_fc-pista i.D04ZE_fc-top{background:#FFE45C;box-shadow:0 0 0 1px #1B1B1B inset}
+#D04Z_app .D04ZE_fc-pie{display:flex;justify-content:space-between;align-items:baseline;gap:6px;margin-top:5px;color:var(--D04Z_tinta2)}
+#D04Z_app .D04ZE_fc-pie a{font-weight:600;color:var(--D04Z_ok-ink);white-space:nowrap}
+#D04Z_app .D04ZE_fc-nota{margin:5px 0 0;color:var(--D04Z_tinta2)}
+@media (min-width:1081px){#D04Z_app .D04Z_mapa-fila>.D04Z_ficha{max-height:640px;overflow:auto;align-self:start;box-sizing:border-box}}
+#D04Z_app .D04ZE_inf h3{margin:0 0 4px}
+#D04Z_app .D04ZE_inf-h{margin:10px 0 4px!important;font:700 13px/1.3 var(--D04Z_f-titulo)!important;letter-spacing:.02em!important;text-transform:none!important;color:var(--D04Z_ok-ink)}
+#D04Z_app .D04ZE_inf p{margin:4px 0}
+#D04Z_app .D04ZE_inf-tb{font-size:12.5px;font-variant-numeric:tabular-nums}
+#D04Z_app .D04ZE_inf-tb td,#D04Z_app .D04ZE_inf-tb th{text-align:left;vertical-align:top}
+#D04Z_app .D04ZE_inf-txt td{white-space:normal;min-width:110px;line-height:1.4}
+#D04Z_app .D04ZE_inf-ol,#D04Z_app .D04ZE_inf-ul{margin:6px 0;padding-left:20px;font-size:13px;line-height:1.5}
+#D04Z_app .D04ZE_inf-ol li,#D04Z_app .D04ZE_inf-ul li{margin:3px 0}
+#D04Z_app .D04ZE_inf[hidden]{display:none}
+</style>
 </head>
 <body>
 
@@ -1081,6 +1112,9 @@ body.D04Z_pdf-cap #D04Z_app .D04Z_res-col + .D04Z_res-col{border-left:1px solid 
         <div class="D04Z_lec" id="D04ZE_lec-tab"></div>
         <div class="D04ZE_bloque"><h3>Segmentos: activar o asegurar</h3><div id="D04ZE_segm"></div></div>
         <div class="D04Z_lec" id="D04ZE_lec"></div>
+        <div class="D04ZE_bloque D04ZE_inf" id="D04ZE_inf"></div>
+        <div class="D04ZE_bloque D04ZE_inf" id="D04ZE_inf-2"></div>
+        <div class="D04ZE_bloque D04ZE_inf" id="D04ZE_inf-3"></div>
         <div class="D04ZE_bloque"><h3>Análisis comparado: cómo se ha usado y cómo debería usarse en territorio</h3><div id="D04ZE_comp"></div>
           <p class="D04Z_nota">Fuentes: informe «Activaciones de voto por edad» (Consensus, octubre 2026): metaanálisis de Gerber y Green; Kalla y Broockman (APSR 2018); Arceneaux y Nickerson (2009); Chong et al. (Jalisco, 2015); Greene y Simpser (2020); INE, estudios muestrales de participación 2021 y 2024; LGIPE art. 209 y LGMDE art. 7.</p></div>
         <div class="D04ZE_tip" id="D04ZE_tip" hidden></div>
@@ -2704,9 +2738,160 @@ return maplibregl$1;
     $('#D04ZE_lec').innerHTML = '<b class="D04Z_lec-t">Lectura del operador · edad y sexo</b>' + lc.L.map(function (p) { return '<p>' + p + '</p>'; }).join('') +
       '<div class="D04Z_impl"><b class="D04Z_lec-t">Cómo implementarlo para mejorar la respuesta e incrementar la cantidad de votos para ' + nF + '</b><ol>' + lc.I.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ol></div>';
     var cp = $('#D04ZE_comp'); if (cp && !cp.firstChild) cp.innerHTML = comparado();
+    pintaTarjeta(); pintaInforme(); /* M5 */
     $('#D04ZE_lec-tab').innerHTML = '<b class="D04Z_lec-t">Cómo leer la tabla</b><p><b>Tasa</b> = sí votó ÷ (sí votó + no votó). <b>vs distrito</b> = puntos contra el mismo grupo en todo el distrito. <b>Índice de peso</b> = su parte de los votos ÷ su parte de la lista nominal; arriba de 1.00 el grupo pesa más en la urna que en el padrón. ' + (MODO === 'seg' ? 'Usa <b>+</b> para abrir un segmento en quinquenales.' : '') + '</p>';
   }
-  function repinta() { if (!conecta()) return; if (PEND) return; PEND = true; (global.requestAnimationFrame || setTimeout)(pinta); }
+  function repinta() { if (!conecta()) return; try { pintaTarjeta(); } catch (e) { } /* M5: la tarjeta de la ficha va al instante */ if (PEND) return; PEND = true; (global.requestAnimationFrame || setTimeout)(pinta); }
+
+
+  /* =====================================================================
+     M5 · Tarjeta demográfica en la ficha e informe por superficie
+     La tarjeta va al final de #D04Z_ficha (cabe en el espacio libre: ~150 px).
+     El informe se genera con el perfil de la sección marcada (o del distrito)
+     y la síntesis de las dos investigaciones de Consensus (octubre 2026):
+     «Activaciones de voto por edad» y «Persuasión del voto por edad».
+     ===================================================================== */
+  var DIST_SEG = null;
+  function segs(secs) { var se = serie(secs, 'T'); return SEG.map(function (g) { var o = grupo(se, g.a, g.b); o.k = g.k; return o; }); }
+  function distSeg() { if (!DIST_SEG) DIST_SEG = segs(TODAS); return DIST_SEG; }
+  function tasaSx(secs, sx, a, b) { return grupo(serie(secs, sx), a == null ? 18 : a, b == null ? 99 : b); }
+  function tarjeta(A) {
+    var secs = A.secs, tot = total(secs), dT = total(TODAS), gan = ganadores(secs, SEG), gs = segs(secs), C = col();
+    var cab = '<div class="D04ZE_fc-cab"><b>Edad y participación' + (A.tipo === 'multi' ? ' · ' + secs.length + ' secciones' : A.tipo === 'dist' ? ' · Distrito 4' : '') + '</b><span>INE 2024</span></div>';
+    if (P.S.fuera != null && !(P.S.sel || []).length) return cab + '<p class="D04ZE_fc-nota">La sección ' + P.S.fuera + ' es de otro distrito: sin dato de lista nominal por edad.</p>';
+    if (tot.t == null) return cab + '<p class="D04ZE_fc-nota">Sin dato de participación por edad: ningún cuadernillo de esta selección se capturó. Lista nominal: ' + f0(tot.ln) + '.</p><div class="D04ZE_fc-pie"><span></span><a href="#D04ZE_inf" data-d04ze_ir="1">Informe ↓</a></div>';
+    var par = tot.ns / tot.ln * 100 >= 30;
+    var h = cab + '<div class="D04ZE_fc-sub">Tasa <b>' + pc(tot.t) + '</b>' + (A.tipo !== 'dist' ? ' · distrito ' + pc(dT.t) : '') + (par ? ' · <span class="D04ZE_fc-par">dato parcial</span>' : '') + '</div>';
+    h += '<div class="D04ZE_fc-dos"><div><b>' + (gan.tasa ? gan.tasa.k : '—') + '</b> más votó · ' + (gan.tasa ? pc(gan.tasa.t) : '—') + (gan.chica ? ' <i>(muestra chica)</i>' : '') + '</div><div><b>' + (gan.votos ? gan.votos.k : '—') + '</b> más votos · ' + (gan.votos ? f0(gan.votos.sv) : '—') + '</div></div>';
+    h += '<div class="D04ZE_fc-barras">' + gs.map(function (g) {
+      var w = g.t == null ? 0 : Math.max(0, Math.min(100, g.t)), top = gan.tasa && gan.tasa.k === g.k;
+      return '<div class="D04ZE_fc-b" title="' + g.k + ': tasa ' + pc(g.t) + ' · votaron ' + f0(g.sv) + ' de ' + f0(g.sv + g.nv) + ' registros capturados"><span>' + g.k + '</span><span class="D04ZE_fc-pista"><i class="' + (top ? 'D04ZE_fc-top' : '') + '" style="width:' + w.toFixed(1) + '%' + (top ? '' : ';background:' + C.SV) + '"></i></span><span>' + (g.t == null ? '—' : Math.round(g.t) + '%') + '</span></div>';
+    }).join('') + '</div>';
+    h += '<div class="D04ZE_fc-pie"><span>Mujeres ' + pc(tasaSx(secs, 'M').t) + ' · Hombres ' + pc(tasaSx(secs, 'H').t) + '</span><a href="#D04ZE_inf" data-d04ze_ir="1">Informe ↓</a></div>';
+    return h;
+  }
+  function pintaTarjeta() {
+    var F = $('#D04Z_ficha'); if (!F || !P || !DAT) return;
+    var c = F.querySelector('#D04ZE_fc');
+    if (!c) { c = document.createElement('div'); c.id = 'D04ZE_fc'; c.className = 'D04ZE_fc'; F.appendChild(c); }
+    c.innerHTML = tarjeta(alcance());
+  }
+
+  /* ---------------- informe por superficie ---------------- */
+  var ROLES = { '18-19': 'Primer voto', '20-29': 'Activar', '30-49': 'Persuadir y activar', '50-64': 'Asegurar y multiplicar', '65-79': 'Asegurar', '80+': 'Logística' };
+  function prioridades(gs) {
+    var act = gs.filter(function (g) { return ['18-19', '20-29', '30-49'].indexOf(g.k) >= 0; }).sort(function (a, b) { return b.nv - a.nv; });
+    var ase = gs.filter(function (g) { return ['50-64', '65-79'].indexOf(g.k) >= 0; }).sort(function (a, b) { return b.sv - a.sv; });
+    var ord = act.concat(ase, gs.filter(function (g) { return g.k === '80+'; })), r = {};
+    ord.forEach(function (g, i) { r[g.k] = i + 1; });
+    return r;
+  }
+  function tcase(s) { return !s ? '' : String(s).toLowerCase().replace(/\s+/g, ' ').trim().split(' ').map(function (w, i) { if (/^(i|ii|iii|iv|v)$/.test(w)) return w.toUpperCase(); if (i > 0 && /^(de|del|la|las|los|el|y|en|a)$/.test(w)) return w; return w.charAt(0).toUpperCase() + w.slice(1); }).join(' '); }
+  var DIA_T = { LUNES: 'lunes', MARTES: 'martes', MIERCOLES: 'miércoles', JUEVES: 'jueves', VIERNES: 'viernes', SABADO: 'sábado', DOMINGO: 'domingo' };
+  var DIAS_O = ['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO', 'DOMINGO'];
+  function centro(secs) {
+    var sx = 0, sy = 0, n = 0;
+    (P.D.geo.features || []).forEach(function (f) {
+      var dest = P.PARTIDAS && P.PARTIDAS[f.properties.s] ? P.PARTIDAS[f.properties.s] : [f.properties.s];
+      if (!dest.some(function (s) { return secs.indexOf(s) >= 0; })) return;
+      (function w(c) { if (typeof c[0] === 'number') { sx += c[0]; sy += c[1]; n++; } else c.forEach(w); })(f.geometry.coordinates);
+    });
+    return n ? [sy / n, sx / n] : null;
+  }
+  function km(a, b) { var k = Math.PI / 180, dy = (a[0] - b[0]) * 111.32, dx = (a[1] - b[1]) * 111.32 * Math.cos(a[0] * k); return Math.sqrt(dx * dx + dy * dy); }
+  function puntosDe(secs) {
+    var D = global.D04ZP && global.D04ZP.datos; if (!D) return null;
+    var dentro = D.puntos.filter(function (p) { return p.sp != null && secs.indexOf(p.sp) >= 0; });
+    var out = { T: [], M: [], C: [], R: [], cerca: [] };
+    dentro.forEach(function (p) { if (out[p.t]) out[p.t].push(p); });
+    if (!out.T.length && !out.M.length) {
+      var c = centro(secs);
+      if (c) out.cerca = D.puntos.filter(function (p) { return p.t === 'T' || p.t === 'M'; }).map(function (p) { return { p: p, d: km(c, [p.la, p.lo]) }; }).sort(function (a, b) { return a.d - b.d; }).slice(0, 3);
+    }
+    return out;
+  }
+  function nomP(p) { return p.t === 'M' ? p.n : tcase(String(p.n).replace(/^CRUCERO\s+/i, '')); }
+  function informe(A) {
+    var secs = A.secs, tot = total(secs), dT = total(TODAS), gs = segs(secs), dg = distSeg(), nF = P.esc(P.nombreF(P.S.f));
+    var col = A.tipo === 'sec' && P.D.colonias && P.D.colonias[secs[0]] ? ' (' + P.esc(P.D.colonias[secs[0]]) + ')' : '';
+    var t1 = '<h3>Informe: cómo aplicarlo en esta superficie · ' + P.esc(A.nombre) + col + '</h3>';
+    if (tot.t == null) {
+      return [t1 + '<p class="D04Z_nota">Sin registros capturados en esta selección: no hay perfil de participación por edad. Usa como referencia las secciones vecinas en la capa «Rango de edad que más votó» y, para la composición por edad, la lista nominal (' + f0(tot.ln) + ' personas).</p>', '', ''];
+    }
+    var pr = prioridades(gs), byk = {}; gs.forEach(function (g) { byk[g.k] = g; });
+    var dk = {}; dg.forEach(function (g) { dk[g.k] = g; });
+    var se = serie(secs, 'T'), dS = serie(TODAS, 'T');
+    var pJ = grupo(se, 18, 29).ln / tot.ln * 100, pJd = grupo(dS, 18, 29).ln / dT.ln * 100, pM = grupo(se, 65, 99).ln / tot.ln * 100, pMd = grupo(dS, 65, 99).ln / dT.ln * 100;
+    var perfil = [];
+    if (A.tipo !== 'dist') {
+      if (pJ >= pJd + 3) perfil.push('joven'); else if (pM >= pMd + 3) perfil.push('envejecida'); else perfil.push('de composición similar al distrito');
+      if (tot.t <= dT.t - 5) perfil.push('de baja participación'); else if (tot.t >= dT.t + 5) perfil.push('de alta participación'); else perfil.push('de participación media');
+    }
+    var tM = tasaSx(secs, 'M'), tH = tasaSx(secs, 'H'), h2049 = tasaSx(secs, 'H', 20, 49), m1829 = tasaSx(secs, 'M', 18, 29), h1829 = tasaSx(secs, 'H', 18, 29);
+    var orden = gs.slice().sort(function (a, b) { return pr[a.k] - pr[b.k]; });
+    var top = orden[0], ase = orden.filter(function (g) { return g.k === '50-64' || g.k === '65-79'; })[0];
+    /* 1 · Diagnóstico y prioridades */
+    var d1 = t1 + '<p class="D04Z_nota">Se genera con el perfil de ' + (A.tipo === 'dist' ? 'todo el distrito' : 'esta selección') + ' (INE, lista nominal 2024) y con las investigaciones de Consensus «Activaciones de voto por edad» y «Persuasión del voto por edad» (octubre 2026). Lo que viene de otros países se rotula como evidencia internacional.</p>';
+    d1 += '<h4 class="D04ZE_inf-h">1 · Diagnóstico y prioridades</h4>';
+    d1 += '<p>' + (A.tipo === 'dist' ? 'El Distrito 4' : P.esc(A.nombre)) + ' tiene <b>' + f0(tot.ln) + '</b> personas en la lista nominal y una tasa de participación de <b>' + pc(tot.t) + '</b>' + (A.tipo !== 'dist' ? ' (' + (tot.t - dT.t >= 0 ? '+' : '') + NF1.format(tot.t - dT.t) + ' puntos contra el distrito)' : '') + '. Los jóvenes de 18-29 son el ' + pc(pJ) + ' de la lista' + (A.tipo !== 'dist' ? ' (distrito ' + pc(pJd) + ')' : '') + ' y los mayores de 65 el ' + pc(pM) + (A.tipo !== 'dist' ? ' (distrito ' + pc(pMd) + ')' : '') + '.' + (perfil.length ? ' Perfil: superficie <b>' + perfil.join(' y ') + '</b>.' : '') + (tot.ns / tot.ln * 100 >= 30 ? ' <b>Dato parcial:</b> ' + pc(tot.ns / tot.ln * 100) + ' sin captura.' : '') + '</p>';
+    d1 += '<div class="D04Z_tabla-env"><table class="D04ZE_inf-tb"><thead><tr><th>Prioridad</th><th>Segmento</th><th>Rol</th><th>Lista nominal</th><th>Tasa</th><th>vs distrito</th><th>No votó</th><th>Votó</th></tr></thead><tbody>' +
+      orden.map(function (g) { var df = g.t != null && dk[g.k].t != null ? g.t - dk[g.k].t : null; return '<tr><td><b>' + pr[g.k] + '</b></td><td>' + g.k + '</td><td>' + ROLES[g.k] + '</td><td>' + f0(g.ln) + '</td><td>' + pc(g.t) + '</td><td class="' + (df == null ? '' : df >= 0 ? 'D04ZE_pos' : 'D04ZE_neg') + '">' + (df == null ? '—' : (df >= 0 ? '+' : '') + NF1.format(df)) + '</td><td>' + f0(g.nv) + '</td><td>' + f0(g.sv) + '</td></tr>'; }).join('') + '</tbody></table></div>';
+    d1 += '<p class="D04Z_nota">Regla de prioridad: primero los segmentos de 18-49 con más personas que no votaron (en una intermedia son los que más responden al contacto), luego los de 50-79 con más votos que asegurar y al final 80+ (logística).</p>';
+    var L = [];
+    L.push('<b>Prioridad 1 · ' + top.k + ' (' + ROLES[top.k].toLowerCase() + '):</b> ' + f0(top.nv) + ' personas no votaron, con tasa de ' + pc(top.t) + '. ' + (top.k === '30-49' ? 'Es el bloque que más responde al contacto en una intermedia: conversación corta en la puerta, hogar completo.' : 'Reserva joven: contacto en la puerta y mensajes entre conocidos en la última semana.'));
+    L.push('<b>Sexo:</b> mujeres ' + pc(tM.t) + ' y hombres ' + pc(tH.t) + '. ' + (tM.t != null && tH.t != null && tM.t >= tH.t ? 'El margen por movilizar está en los <b>hombres de 20-49</b>: ' + f0(h2049.nv) + ' no votaron (tasa ' + pc(h2049.t) + ').' : 'Aquí los hombres votan igual o más que las mujeres: revisa el contacto con mujeres de 20-49.'));
+    L.push('<b>Mujeres de 18-29</b> (' + f0(m1829.ln) + ' en lista, tasa ' + pc(m1829.t) + '; hombres de su edad ' + pc(h1829.t) + '): es el segmento donde los partidos verdes rinden casi el doble en el extranjero (evidencia internacional).');
+    if (ase) L.push('<b>Asegurar · ' + ase.k + ':</b> aporta ' + f0(ase.sv) + ' votos con tasa de ' + pc(ase.t) + '. Ya votan: refuerzo y promotores ante su familia, no movilización.');
+    d1 += '<ol class="D04ZE_inf-ol">' + L.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ol>';
+    /* 2 · Mensaje, mensajero y canal */
+    var filas = [
+      ['18-19', '18-19 (ambos sexos)', 'Novedad y futuro propio: transporte, estudio, primer empleo; temas concretos de la colonia.', 'Amigos y pares de su edad; creadores locales que no hablan de política (voluntarios, no pagados).', 'Mensajes de amigo a amigo y redes (Instagram, TikTok) en la última semana; visita a la casa de los padres.', 'Primer voto: forma hábito (EE. UU., Dinamarca). México 2024: los de 18-19 fueron los más divididos (dato con metodología no publicada).'],
+      ['20-29', 'Mujeres 20-29', 'Marca verde: arbolado, agua, espacios públicos seguros, cuidados, movilidad.', 'Mujeres jóvenes de la colonia; creadoras no políticas.', 'Contenido orgánico en redes y puerta a puerta; reuniones pequeñas.', 'Verdes con mujeres jóvenes: Reino Unido 2024 23% contra 12% de los hombres; Australia 2025 29.6% contra 20.6%. Voto volátil (Alemania).'],
+      ['20-29', 'Hombres 20-29', 'Oferta material y local: empleo, transporte, seguridad, costo de vida. Sin confrontación entre sexos.', 'Vecinos y pares (deporte, trabajo, oficios).', 'Puerta a puerta, WhatsApp de conocidos, video y transmisiones en vivo.', 'Giro de hombres jóvenes a opciones antisistema o de derecha: EE. UU. 2024 (56-42), Chile 2025, Argentina 2023. El discurso antifeminista (Corea 2022) cuesta lo mismo con las mujeres.'],
+      ['30-49', '30-49 (hogar completo)', 'Costo de vida, escuelas, seguridad, servicios (agua, alumbrado).', 'Brigadistas de la colonia y el candidato; conversación de 3 a 5 minutos.', 'Puerta a puerta a todo el hogar, durante toda la campaña.', 'Francia 2012: el puerta a puerta sumó unos 3 puntos al voto (única prueba causal de persuasión en la puerta). Las conversaciones con experiencias personales cambian actitudes de forma duradera.'],
+      ['50-64', '50-64', 'Salud, seguridad, continuidad de lo que funciona.', 'Promotores de la propia colonia; líderes vecinales.', 'Reuniones vecinales, WhatsApp familiar, radio local.', 'Voto más estable con la edad; el papel útil es multiplicar hacia hijos y nietos.'],
+      ['65-79', '65-79', 'Complementar los beneficios que ya reciben (salud, trámites, seguridad); no competir con la pensión.', 'Personas cercanas y de confianza; promotores de su edad.', 'Visitas, radio y televisión local; reuniones sin comida ni regalos (LGIPE 209.5). Prevenir rumores.', 'México 2024: Sheinbaum 68% entre mayores de 55 y 69% entre beneficiarios de programas: el voto sigue a quien entrega el beneficio.'],
+      ['80+', '80 y más', 'Información útil: dónde está su casilla y cómo llegar.', 'Familia y vecinos.', 'Visita y plan de voto antes de la jornada; nunca transporte organizado el día de la elección (LGMDE art. 7).', 'Sin datos de preferencia en ningún país; el problema es logístico.']
+    ];
+    var d2 = '<h4 class="D04ZE_inf-h">2 · Mensaje, mensajero y canal por segmento</h4><p class="D04Z_nota">Ordenado por la prioridad de esta superficie. Evidencia internacional: no está probada en México y conviene validarla con una encuesta por sección. Mensajeros voluntarios, no pagados: el Verde ya fue multado en 2021 por pagar influencers.</p>';
+    d2 += '<div class="D04Z_tabla-env"><table class="D04ZE_inf-tb D04ZE_inf-txt"><thead><tr><th>Prioridad</th><th>Segmento</th><th>Mensaje</th><th>Mensajero</th><th>Canal y formato</th><th>Evidencia internacional</th></tr></thead><tbody>' +
+      filas.slice().sort(function (a, b) { return pr[a[0]] - pr[b[0]]; }).map(function (f) { return '<tr><td><b>' + pr[f[0]] + '</b></td><td><b>' + f[1] + '</b></td><td>' + f[2] + '</td><td>' + f[3] + '</td><td>' + f[4] + '</td><td>' + f[5] + '</td></tr>'; }).join('') + '</tbody></table></div>';
+    /* 3 · Dónde y cuándo */
+    var d3 = '<h4 class="D04ZE_inf-h">3 · Dónde y cuándo en territorio</h4>', pts = puntosDe(secs);
+    if (!pts) d3 += '<p class="D04Z_nota">Cargando los puntos de territorio…</p>';
+    else if (A.tipo === 'dist') {
+      var D = global.D04ZP.datos.puntos, T = D.filter(function (p) { return p.t === 'T'; }), cd = {};
+      T.forEach(function (p) { cd[p.dia] = (cd[p.dia] || 0) + 1; });
+      d3 += '<p>En el distrito hay <b>' + T.length + ' tianguis</b> (' + DIAS_O.filter(function (d) { return cd[d]; }).map(function (d) { return DIA_T[d] + ' ' + cd[d]; }).join(', ') + '), <b>' + D.filter(function (p) { return p.t === 'M'; }).length + ' mercados</b>, <b>' + D.filter(function (p) { return p.t === 'C'; }).length + ' cruceros principales</b> y <b>' + D.filter(function (p) { return p.t === 'R'; }).length + ' lugares de reunión</b>. Marca una sección para ver sus puntos y su calendario.</p>';
+    } else {
+      var li = [];
+      if (pts.T.length) li.push('<b>Tianguis:</b> ' + pts.T.map(function (p) { return P.esc(nomP(p)) + ' (' + (DIA_T[p.dia] || 'sin día') + (p.calle ? ', ' + P.esc(tcase(p.calle)) : '') + ')'; }).join('; ') + ' → contacto con 30-49 y mujeres jóvenes en su día; conversación corta y registro de simpatizantes.');
+      if (pts.M.length) li.push('<b>Mercados:</b> ' + pts.M.map(function (p) { return P.esc(p.n); }).join('; ') + ' → módulo de atención en la banqueta para 50-79, sin propaganda en el inmueble (LGIPE 250).');
+      if (pts.C.length) li.push('<b>Cruceros principales:</b> ' + pts.C.map(function (p) { return P.esc(nomP(p)); }).join('; ') + ' → visibilidad en horas de traslado (20-49).');
+      if (pts.R.length) li.push('<b>Lugar de reunión:</b> ' + pts.R.map(function (p) { return P.esc(nomP(p)) + ' (sección federal ' + p.sf + ')'; }).join('; ') + ' → cita de brigadistas y promotores; cierre en la sección.');
+      if (pts.cerca.length) li.push('<b>Sin tianguis ni mercado dentro:</b> los más cercanos son ' + pts.cerca.map(function (o) { return P.esc(nomP(o.p)) + ' (' + (o.p.t === 'T' ? 'tianguis, ' + (DIA_T[o.p.dia] || '') : 'mercado') + ', a ' + NF1.format(o.d) + ' km)'; }).join('; ') + '.');
+      if (!li.length) li.push('No hay puntos de territorio registrados para esta selección.');
+      d3 += '<ul class="D04ZE_inf-ul">' + li.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>';
+      var tC = pts.cerca.filter(function (o) { return o.p.t === 'T'; })[0];
+      var diasT = pts.T.map(function (p) { return DIA_T[p.dia]; }).filter(Boolean), nomR = pts.R.length ? nomP(pts.R[0]) : 'el lugar de reunión de la sección';
+      var o1 = orden.filter(function (g) { return ['18-19', '20-29', '30-49'].indexOf(g.k) >= 0; })[0];
+      var cal = [
+        ['1-2', '4 al 17 de abril', 'Reclutar promotores entre los ' + f0(grupo(se, 50, 79).sv) + ' votantes de 50-79 y voluntarios jóvenes' + (diasT.length ? '; presencia en el tianguis los ' + diasT.join(' y ') : (tC ? '; presencia en el tianguis más cercano, ' + P.esc(nomP(tC.p)) + ' (' + (DIA_T[tC.p.dia] || '') + ')' : '')) + '.'],
+        ['3-6', '18 de abril al 15 de mayo', 'Puerta a puerta persuasivo al hogar completo, empezando por ' + o1.k + ' (' + f0(o1.nv) + ' no votaron); meta de contacto de la mitad del segmento. Contenido orgánico con mujeres de 18-29.'],
+        ['7-8', '16 al 29 de mayo', 'Refuerzo de 50-79 y de simpatizantes identificados; oferta local para hombres de 20-49 (' + f0(h2049.nv) + ' no votaron).'],
+        ['9', '30 de mayo al 2 de junio', 'Mensajes de amigo a amigo y plan de voto para 18-49; información de casilla para 80+; cierre en ' + P.esc(nomR) + '.'],
+        ['Veda', '3 al 5 de junio', 'Sin actividades de campaña ni propaganda (LGIPE 251).'],
+        ['Jornada', '6 de junio', 'Sin transporte ni reuniones organizadas de votantes; sin proselitismo en la fila (LGMDE art. 7).']
+      ];
+      d3 += '<div class="D04Z_tabla-env"><table class="D04ZE_inf-tb D04ZE_inf-txt"><thead><tr><th>Semana</th><th>Fechas 2027</th><th>Acción en esta superficie</th></tr></thead><tbody>' + cal.map(function (r) { return '<tr><td><b>' + r[0] + '</b></td><td>' + r[1] + '</td><td>' + r[2] + '</td></tr>'; }).join('') + '</tbody></table></div><p class="D04Z_nota">Calendario de campañas de Jalisco 2027 tomado de prensa (4 de abril al 2 de junio); confirmar con el IEPC.</p>';
+    }
+    return [d1, d2, d3];
+  }
+  function pintaInforme() {
+    var A = alcance(), r = informe(A);
+    ['D04ZE_inf', 'D04ZE_inf-2', 'D04ZE_inf-3'].forEach(function (id, i) { var n = $('#' + id); if (n) { n.innerHTML = r[i]; n.hidden = !r[i]; } });
+    if (!(global.D04ZP && global.D04ZP.datos) && !pintaInforme.reintento) { pintaInforme.reintento = setTimeout(function () { pintaInforme.reintento = null; if (global.D04ZP && global.D04ZP.datos) pintaInforme(); }, 1200); }
+  }
 
   /* ---------------- CSV ---------------- */
   function csv() {
@@ -2842,6 +3027,7 @@ return maplibregl$1;
         var t = ev.target.closest ? ev.target : null; if (!t) return;
         var m = t.closest('[data-d04ze_modo]'); if (m) { MODO = m.getAttribute('data-d04ze_modo') === 'quin' ? 'quin' : 'seg'; pinta(); return; }
         var a = t.closest('[data-d04ze_abre]'); if (a) { var k = a.getAttribute('data-d04ze_abre'); ABIERTOS[k] = !ABIERTOS[k]; pinta(); return; }
+        var ir = t.closest('[data-d04ze_ir]'); if (ir) { ev.preventDefault(); var dst = $('#D04ZE_inf'); if (dst) dst.scrollIntoView({ block: 'start' }); return; }
         if (t.closest('#D04ZE_csv')) csv();
       });
       var tip = $('#D04ZE_tip'), panel = $('#D04ZE_panel');
@@ -2858,6 +3044,7 @@ return maplibregl$1;
       panel.addEventListener('mouseleave', function () { tip.hidden = true; });
       /* cambio de tema (botón o captura del PDF): los SVG llevan color en duro y se repintan */
       if (global.MutationObserver) new MutationObserver(function () { repinta(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-tema'] });
+      var fichaN = $('#D04Z_ficha'); if (global.MutationObserver && fichaN) new MutationObserver(function () { if (!fichaN.querySelector('#D04ZE_fc')) pintaTarjeta(); }).observe(fichaN, { childList: true }); /* M5 */
       pinta();
       global.D04ZE_listo = true;
       if (esCapa(P.S.capa) && global.D04Z3D) global.D04Z3D.repinta();
@@ -5428,7 +5615,7 @@ return maplibregl$1;
       if (window.CxReal) window.CxReal.cargar().then(function () { if (S.vista === 'panorama') pintaOperador(); else if (S.vista === 'mapa') pintaResumen(); });
       controles(); llenaSelInf(); marcaGlobal();
       $('#D04Z_cargando').hidden = true;
-      $('#D04Z_pie').textContent = 'Módulo D04Z_ 2026-10-13.C1 (datos ' + D.version + ') · generado el 13 de octubre de 2026. Datos incrustados e independientes del Distrito 10; funciona sin conexión salvo las teselas del mapa y las tipografías. Fuentes: cómputos por casilla 2024 local (IEPC Jalisco) y federal (INE) del Distrito 4, padrón municipal de tianguis de Zapopan y cartografía seccional de la página Electoral. Sin histórico 2015–2021, acta local, agenda ni colonias del Distrito 4 en el proyecto. Extracción 2026-10-16.M1: solo la subpestaña Mapa. 2026-10-16.M2: vista 3D (MapLibre GL 4.7.1 incrustado; colores y cálculos del mapa 2D; secciones partidas unidas en un solo sólido). 2026-10-17.M3: puntos de territorio (tianguis, mercados y cruceros; SUGERIDOS y TODOS) en 3D y 2D. 2026-10-18.M4: lista nominal por edad y sexo (INE 2024) con panel por sección y seis capas.';
+      $('#D04Z_pie').textContent = 'Módulo D04Z_ 2026-10-13.C1 (datos ' + D.version + ') · generado el 13 de octubre de 2026. Datos incrustados e independientes del Distrito 10; funciona sin conexión salvo las teselas del mapa y las tipografías. Fuentes: cómputos por casilla 2024 local (IEPC Jalisco) y federal (INE) del Distrito 4, padrón municipal de tianguis de Zapopan y cartografía seccional de la página Electoral. Sin histórico 2015–2021, acta local, agenda ni colonias del Distrito 4 en el proyecto. Extracción 2026-10-16.M1: solo la subpestaña Mapa. 2026-10-16.M2: vista 3D (MapLibre GL 4.7.1 incrustado; colores y cálculos del mapa 2D; secciones partidas unidas en un solo sólido). 2026-10-17.M3: puntos de territorio (tianguis, mercados y cruceros; SUGERIDOS y TODOS) en 3D y 2D. 2026-10-18.M4: lista nominal por edad y sexo (INE 2024) con panel por sección y seis capas. 2026-10-18.M5: tarjeta demográfica en la ficha e informe por superficie.';
       var v = 'panorama'; try { v = localStorage.getItem('D04Z_vista') || 'panorama'; } catch (e) { }
       if (SUB_PEND) { v = SUB_PEND; SUB_PEND = null; }
       if (!document.getElementById('D04Z_v-' + v)) v = 'panorama';
